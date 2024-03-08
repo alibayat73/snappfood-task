@@ -9,6 +9,7 @@ use App\Jobs\ReEstimateOrderDeliveryTime;
 use App\Models\Agent;
 use App\Models\DelayReport;
 use App\Models\Order;
+use App\Models\Trip;
 use App\Models\Vendor;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
@@ -27,6 +28,7 @@ class DelayReportController extends Controller
      */
     public function store(DelayReportRequest $request, Order $order)
     {
+        /** @var Trip $trip $trip */
         $trip = $order->trip()->first();
         if ($trip && $trip->isNotDeliveredYet()) {
             ReEstimateOrderDeliveryTime::dispatch($order);
@@ -74,7 +76,7 @@ class DelayReportController extends Controller
      * @param Vendor $vendor
      * @return Application|ResponseFactory|\Illuminate\Foundation\Application|Response
      */
-    public function vendorsDelayReport(Vendor $vendor)
+    public function vendorDelayReport(Vendor $vendor)
     {
         $orders = $vendor->orders()
             ->withWhereHas('lastDelayReport')

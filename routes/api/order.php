@@ -8,4 +8,4 @@ Route::middleware(['auth:sanctum'])
 
 Route::get('assign-delay-report', [DelayReportController::class, 'assignDelayReport']);
 
-Route::get('{vendor}/delay-report', [DelayReportController::class, 'vendorsDelayReport']);
+Route::get('{vendor}/delay-report', [DelayReportController::class, 'vendorDelayReport']);
