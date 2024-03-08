@@ -38,7 +38,7 @@ class ReEstimateOrderDeliveryTime implements ShouldQueue
                 $this->order->update(['delivery_time' => DB::raw('delivery_time + ' . random_int(20, 40))]);
             }
 
-        } catch (\Throwable $throwable) {
+        } catch (\Throwable) {
             $this->order->update(['delivery_time' => DB::raw('delivery_time + ' . random_int(20, 40))]);
         }
     }
