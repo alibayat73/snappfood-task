@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,5 +16,24 @@ class DelayReport extends Model
         return $this->belongsTo(Order::class);
     }
 
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class);
+    }
+
+    public function scopeReviewed(Builder $query): Builder
+    {
+        return $query->whereNotNull('reviewed_at');
+    }
+
+    public function scopeUnreviewed(Builder $query): Builder
+    {
+        return $query->whereNull('reviewed_at');
+    }
+
+    public function scopeWithoutAgent(Builder $query): Builder
+    {
+        return $query->whereNull('agent_id');
+    }
 
 }

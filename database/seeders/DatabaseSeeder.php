@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 AgentSeeder::class,
                 OrderSeeder::class,
                 TripSeeder::class,
+                DelayReportSeeder::class,
             ]);
         });
     }

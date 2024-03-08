@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Agent;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class DelayReportFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'order_id' => Order::factory(),
+            'agent_id' => Agent::factory(),
+            'reviewed_at' => fake()->dateTime(),
         ];
     }
 }

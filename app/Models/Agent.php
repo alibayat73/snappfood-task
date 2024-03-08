@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Agent extends Model
 {
@@ -14,8 +15,8 @@ class Agent extends Model
         'name',
     ];
 
-    public function currentDelayReport(): BelongsTo
+    public function delayReports(): HasMany
     {
-        return $this->belongsTo(DelayReport::class, 'current_delay_report_id');
+        return $this->hasMany(DelayReport::class);
     }
 }

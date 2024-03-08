@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\DelayReport;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +18,6 @@ class AgentFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'current_delay_report_id' => DelayReport::factory(),
         ];
     }
 }

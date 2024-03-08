@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(DelayReport::class, 'current_delay_report_id')->nullable();
             $table->timestamps();
         });
     }
