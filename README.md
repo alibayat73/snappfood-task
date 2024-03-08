@@ -1,15 +1,17 @@
 Steps to make the project up and running:
 
 1. Install PHP 8.2
-2. Install composer package manager.
-3. Install a relational Database (**_MySQL_** preferred).
-4. Install **_sqlite3_** for tests.
-5. Terminal command: `sudo apt-get install php8.2-sqlite3`
-6. Go into database CLI and run this query: `create database snappfood;`
-7. Clone this project: ``
-8. Create a file in the project's root directory and name it _**.env**_
-9. Copy _**.env.example**_ file content into the  _**.env**_
-10. Fill the fields below with your database info:
+2. Terminal Command: `sudo apt update`
+3. Terminal Command: `sudo apt install php-mysql php-mbstring php-xml php-json php-bcmath`
+4. Install composer package manager.
+5. Install a relational Database (**_MySQL_** preferred).
+6. Install **_sqlite3_** for tests.
+7. Terminal command: `sudo apt-get install php8.2-sqlite3`
+8. Go into database CLI and run this query: `create database snappfood;`
+9. Clone this project: ``
+10. Create a file in the project's root directory and name it _**.env**_
+11. Copy _**.env.example**_ file content into the  _**.env**_
+12. Fill the fields below with your database info:
 
     ```
      DB_CONNECTION=mysql
@@ -18,12 +20,12 @@ Steps to make the project up and running:
      DB_USERNAME=root
      DB_PASSWORD=
 
-11. Install packages using this command: `composer update`
-12. Terminal Command: `php artisan key:generate`
-13. Terminal Command: `php artisan serve`
-14. Terminal Command: `php artisan migrate`
-15. Terminal Command: `php artisan db:seed`
-16. Login and get a bearer token:
+13. Install packages using this command: `composer update`
+14. Terminal Command: `php artisan key:generate`
+15. Terminal Command: `php artisan serve`
+16. Terminal Command: `php artisan migrate`
+17. Terminal Command: `php artisan db:seed`
+18. Login and get a bearer token:
 
      POST: <localhost:8000/api/signin>
 
