@@ -35,4 +35,9 @@ class Order extends Model
     {
         return $this->hasMany(DelayReport::class);
     }
+
+    public function lastDelayReport(): HasOne
+    {
+        return $this->delayReports()->one()->latestOfMany();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateInterval;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,11 @@ class DelayReport extends Model
     public function scopeWithoutAgent(Builder $query): Builder
     {
         return $query->whereNull('agent_id');
+    }
+
+    public static function toDateTimeString(DateInterval $delay): string
+    {
+        return "00-00-$delay->d $delay->h:$delay->i:$delay->s";
     }
 
 }
