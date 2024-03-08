@@ -17,7 +17,7 @@ class DelayReportRequest extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'delivery_estimation' => $this->order->created_at->addMinutes($this->order->delivery_time)
+            'delivery_estimation' => $this->order->created_at->addMinutes($this->order->delivery_time),
         ]);
     }
 
@@ -29,7 +29,7 @@ class DelayReportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'delivery_estimation' => ['date', 'before:now']
+            'delivery_estimation' => ['date', 'before:now'],
         ];
     }
 }

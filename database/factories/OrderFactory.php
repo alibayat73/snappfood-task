@@ -21,7 +21,7 @@ class OrderFactory extends Factory
         return [
             'delivery_time' => fake()->numberBetween(50, 120),
             'vendor_id' => Vendor::factory(),
-            'user_id' => User::factory(),
+            'user_id' => User::query()->first()->id,
         ];
     }
 }

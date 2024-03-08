@@ -28,7 +28,7 @@ class DelayReportController extends Controller
      */
     public function store(DelayReportRequest $request, Order $order)
     {
-        /** @var Trip $trip $trip */
+        /** @var Trip $trip */
         $trip = $order->trip()->first();
         if ($trip && $trip->isNotDeliveredYet()) {
             ReEstimateOrderDeliveryTime::dispatch($order);
@@ -39,9 +39,15 @@ class DelayReportController extends Controller
             ->doesntExist();
         if ($order_has_not_unreviewed_delay_report) {
             $order->delayReports()->create();
-            return response('Delay has been submitted!', Response::HTTP_CREATED);
+            return response([
+                'data' => null,
+                'message' => 'Delay has been submitted!',
+            ], Response::HTTP_CREATED);
         } else {
-            return response('Unreviewed delay report can not be submitted again.', Response::HTTP_CONFLICT);
+            return response([
+                'data' => null,
+                'message' => 'Unreviewed delay report can not be submitted again.',
+            ], Response::HTTP_ALREADY_REPORTED);
         }
     }
 

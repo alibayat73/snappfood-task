@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
                 VendorSeeder::class,
                 AgentSeeder::class,
                 OrderSeeder::class,
-                TripSeeder::class,
                 DelayReportSeeder::class,
             ]);
         });

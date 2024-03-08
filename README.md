@@ -29,7 +29,11 @@ Steps to make the project up and running:
     * (This API is included in the Postman Collection (Authentication -> Signin))
    
 
-15. Use the bearer token above to call _Order -> Report Delay_ API.
+### APIs
+
+1. _Order -> Report Delay_
     
-    POST: <localhost:8000/api/10/delay-report>
-    * (This API is included in the Postman Collection (Order -> Report Delay))
+   * In order to use call this API, the bearer token must be used.
+     POST: <localhost:8000/api/{order_id}/delay-report>
+
+   * (This API is included in the Postman Collection (Order -> Report Delay))
