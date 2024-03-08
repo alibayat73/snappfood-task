@@ -32,10 +32,18 @@ Steps to make the project up and running:
    
 
 ### APIs
+* All APIs are included in the Postman Collection.
 
 1. _Order -> Report Delay_
+
+   * POST: <localhost:8000/api/{order_id}/delay-report>
     
    * In order to use call this API, the bearer token must be used.
-   
-        POST: <localhost:8000/api/{order_id}/delay-report>
-   * (This API is included in the Postman Collection (Order -> Report Delay))
+
+2. _Order -> Assign Delay Report_
+
+    * GET: <localhost:8000/api/assign-delay-report>
+
+3. _Order -> Assign Delay Report_
+    
+    * GET: <localhost:8000/api/{{order}}/delay-report>
